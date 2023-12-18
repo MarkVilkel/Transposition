@@ -1,3 +1,14 @@
+# Build and Run
+1. Execute in **Transposition** folder the next command
+```
+mvn clean install assembly:single
+```
+2. Place _input.json_ file to **/Transposition/target** folder
+2. Execute in **/Transposition/target** folder the next command
+```
+java -jar transposition-1.0-SNAPSHOT-jar-with-dependencies.jar "input.json" -3
+```
+
 # Transposition
 The piano keyboard is divided into octaves, each octave has 12 notes.
 The distance between two random notes is called “interval”. The interval between two neighboring notes is called “semitone”. The interval of 12 semitones (1 octave) doubles the sound frequency. Transposition refers to the process or operation of moving a musical piece (a collection of notes) up or down in pitch by a constant interval. For example, if you transpose 2 tones (4 semitones) down the note 5, it becomes note 1, if you transpose the note 2 by the same interval, it will become note 10 of the previous octave etc.

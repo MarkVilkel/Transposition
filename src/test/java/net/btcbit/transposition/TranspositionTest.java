@@ -17,27 +17,27 @@ class TranspositionTest {
     @Test
     void testTransposition() {
         var transposition = new Transposition();
-        var notes = List.of(new Note(2, 1));
+        var note = new Note(2, 1);
 
-        var shifted = transposition.shift(notes, 2);
-        assertEquals(List.of(new Note(2, 3)), shifted);
+        var shifted = transposition.shift(note, 2);
+        assertEquals(new Note(2, 3), shifted);
 
-        shifted = transposition.shift(notes, 12);
-        assertEquals(List.of(new Note(3, 1)), shifted);
+        shifted = transposition.shift(note, 12);
+        assertEquals(new Note(3, 1), shifted);
 
-        shifted = transposition.shift(notes, -12);
-        assertEquals(List.of(new Note(1, 1)), shifted);
+        shifted = transposition.shift(note, -12);
+        assertEquals(new Note(1, 1), shifted);
 
 
-        shifted = transposition.shift(notes, 12 * 3);
-        assertEquals(List.of(new Note(5, 1)), shifted);
+        shifted = transposition.shift(note, 12 * 3);
+        assertEquals(new Note(5, 1), shifted);
 
-        assertThrowsExactly(IllegalArgumentException.class, () -> transposition.shift(notes, 12 * 3 + 1));
+        assertThrowsExactly(IllegalArgumentException.class, () -> transposition.shift(note, 12 * 3 + 1));
 
-        shifted = transposition.shift(notes, -12 * 4 - 3);
-        assertEquals(List.of(new Note(-3, 10)), shifted);
+        shifted = transposition.shift(note, -12 * 4 - 3);
+        assertEquals(new Note(-3, 10), shifted);
 
-        assertThrowsExactly(IllegalArgumentException.class, () -> transposition.shift(notes, -12 * 4 - 4));
+        assertThrowsExactly(IllegalArgumentException.class, () -> transposition.shift(note, -12 * 4 - 4));
     }
 
     @Test
