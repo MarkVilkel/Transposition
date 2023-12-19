@@ -1,4 +1,6 @@
 # Build and Run
+The project is implemented under Java 21.
+
 1. Execute in **Transposition** folder the next command
 ```
 mvn clean install assembly:single
@@ -6,7 +8,7 @@ mvn clean install assembly:single
 2. Place _input.json_ file to **/Transposition/target** folder
 2. Execute in **/Transposition/target** folder the next command
 ```
-java -jar transposition-1.0-SNAPSHOT-jar-with-dependencies.jar "input.json" -3
+java -jar transposition-1.0-SNAPSHOT-jar-with-dependencies.jar "input.json" -3 "output.json"
 ```
 
 # Transposition

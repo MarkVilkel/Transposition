@@ -1,9 +1,9 @@
 package net.btcbit;
 
+import java.io.IOException;
+
 import net.btcbit.transposition.Transposition;
 import net.btcbit.util.FileUtil;
-
-import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) throws IOException {
@@ -11,12 +11,13 @@ public class Application {
             throw new IllegalArgumentException("Wrong input params count");
         }
 
-        var pathToFile = args[0];
+        var inputFileName = args[0];
         var semitonesShift = Integer.parseInt(args[1]);
+        var outputFileName = args.length > 2 ? args[2] : inputFileName + "_output";
 
-        var notes = FileUtil.readNotesFromFile(pathToFile);
+        var notes = FileUtil.readNotesFromFile(inputFileName);
         var transposition = new Transposition();
         var shiftedNotes = transposition.shift(notes, semitonesShift);
-        FileUtil.writeToJsonFile(shiftedNotes, pathToFile + "_output");
+        FileUtil.writeToJsonFile(shiftedNotes, outputFileName);
     }
 }
